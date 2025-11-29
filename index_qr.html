@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kafé Labs - Brazilian Minas Gerais</title>
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+background: #f5f1e8;
+color: #333;
+line-height: 1.6;
+}
+.container {
+max-width: 800px;
+margin: 0 auto;
+background: white;
+min-height: 100vh;
+}
+/* Header */
+.header {
+background: linear-gradient(135deg, #2D5F3F 0%, #1a3a27 100%);
+color: white;
+padding: 40px 30px;
+text-align: center;
+}
+.logo {
+font-size: 24px;
+font-weight: 700;
+margin-bottom: 8px;
+letter-spacing: 1px;
+}
+.tagline {
+font-size: 13px;
+opacity: 0.9;
+text-transform: uppercase;
+letter-spacing: 2px;
+}
+/* Hero Section */
+.hero {
+background: linear-gradient(to bottom, rgba(45, 95, 63, 0.05) 0%, white 100%);
+padding: 40px 30px;
+text-align: center;
+}
+.origin-badge {
+display: inline-block;
+background: #2D5F3F;
+color: white;
+padding: 8px 20px;
+border-radius: 20px;
+font-size: 12px;
+font-weight: 600;
+text-transform: uppercase;
+letter-spacing: 1px;
+margin-bottom: 20px;
+}
+.hero h1 {
+font-size: 36px;
+color: #2D5F3F;
+margin-bottom: 12px;
+font-weight: 700;
+}
+.hero p {
+font-size: 18px;
+color: #666;
+max-width: 600px;
+margin: 0 auto 30px;
+}
+.coffee-image {
+width: 100%;
+max-width: 500px;
+height: 300px;
+background: linear-gradient(135deg, #8B4513 0%, #654321 100%);
+border-radius: 16px;
+margin: 0 auto 20px;
+display: flex;
+align-items: center;
+justify-content: center;
+color: white;
+font-size: 14px;
+object-fit: cover;
+box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+/* Producer Story Section */
+.section {
+padding: 50px 30px;
+border-bottom: 1px solid #e0e0e0;
+}
+.section-title {
+font-size: 28px;
+color: #2D5F3F;
+margin-bottom: 24px;
+font-weight: 700;
+display: flex;
+align-items: center;
+gap: 12px;
+}
+.icon {
+width: 36px;
+height: 36px;
+background: #2D5F3F;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+color: white;
+font-size: 18px;
+}
+.producer-card {
+background: #f9f9f9;
+border-radius: 12px;
+padding: 30px;
+margin-bottom: 24px;
+}
+.producer-header {
+display: flex;
+align-items: center;
+gap: 20px;
+margin-bottom: 20px;
+}
+.producer-avatar {
+width: 80px;
+height: 80px;
+background: linear-gradient(135deg, #2D5F3F 0%, #4a8f5f 100%);
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+color: white;
+font-size: 32px;
+font-weight: 700;
+}
+.producer-info h3 {
+font-size: 22px;
+color: #333;
+margin-bottom: 4px;
+}
+.producer-location {
+font-size: 14px;
+color: #666;
+display: flex;
+align-items: center;
+gap: 6px;
+}
+.producer-story {
+font-size: 15px;
+color: #555;
+line-height: 1.8;
+margin-bottom: 20px;
+}
+.farm-details {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 16px;
+margin-top: 24px;
+}
+.detail-card {
+background: white;
+padding: 16px;
+border-radius: 8px;
+border: 1px solid #e0e0e0;
+}
+.detail-label {
+font-size: 11px;
+text-transform: uppercase;
+color: #999;
+font-weight: 600;
+letter-spacing: 0.5px;
+margin-bottom: 6px;
+}
+.detail-value {
+font-size: 16px;
+color: #333;
+font-weight: 600;
+}
+/* Roasting Method Section */
+.roasting-method {
+background: linear-gradient(135deg, #2D5F3F 0%, #1a3a27 100%);
+color: white;
+}
+.roasting-method .section-title {
+color: white;
+}
+.roasting-method .icon {
+background: rgba(255,255,255,0.2);
+}
+.method-intro {
+font-size: 16px;
+margin-bottom: 32px;
+opacity: 0.95;
+line-height: 1.8;
+}
+.profile-card {
+background: rgba(255,255,255,0.1);
+backdrop-filter: blur(10px);
+border-radius: 12px;
+padding: 24px;
+margin-bottom: 24px;
+border: 1px solid rgba(255,255,255,0.2);
+}
+.profile-name {
+font-size: 20px;
+font-weight: 700;
+margin-bottom: 8px;
+display: flex;
+align-items: center;
+gap: 10px;
+}
+.recommended-badge {
+background: #B87333;
+padding: 4px 12px;
+border-radius: 12px;
+font-size: 11px;
+text-transform: uppercase;
+letter-spacing: 1px;
+}
+.profile-description {
+font-size: 14px;
+opacity: 0.9;
+margin-bottom: 20px;
+}
+.parameters {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 16px;
+}
+.param {
+text-align: center;
+}
+.param-label {
+font-size: 11px;
+text-transform: uppercase;
+opacity: 0.8;
+margin-bottom: 8px;
+letter-spacing: 0.5px;
+}
+.param-value {
+font-size: 28px;
+font-weight: 700;
+display: block;
+}
+.param-unit {
+font-size: 12px;
+opacity: 0.8;
+margin-top: 4px;
+}
+/* Steps */
+.steps {
+margin-top: 32px;
+}
+.step {
+background: rgba(255,255,255,0.05);
+border-radius: 8px;
+padding: 20px;
+margin-bottom: 16px;
+display: flex;
+gap: 16px;
+align-items: start;
+border-left: 4px solid #B87333;
+}
+.step-number {
+background: #B87333;
+width: 32px;
+height: 32px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-weight: 700;
+font-size: 16px;
+flex-shrink: 0;
+}
+.step-content h4 {
+font-size: 16px;
+margin-bottom: 6px;
+}
+.step-content p {
+font-size: 14px;
+opacity: 0.9;
+line-height: 1.6;
+}
+/* Tasting Notes */
+.tasting-notes {
+background: #f9f9f9;
+}
+.notes-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 16px;
+margin-bottom: 24px;
+}
+.note-card {
+background: white;
+padding: 20px;
+border-radius: 12px;
+text-align: center;
+border: 2px solid #2D5F3F;
+}
+.note-icon {
+font-size: 32px;
+margin-bottom: 12px;
+}
+.note-name {
+font-size: 14px;
+font-weight: 600;
+color: #2D5F3F;
+}
+.flavor-profile {
+background: white;
+padding: 24px;
+border-radius: 12px;
+}
+.flavor-profile h4 {
+font-size: 16px;
+margin-bottom: 16px;
+color: #2D5F3F;
+}
+.flavor-bar {
+margin-bottom: 16px;
+}
+.flavor-label {
+display: flex;
+justify-content: space-between;
+font-size: 13px;
+margin-bottom: 6px;
+color: #666;
+}
+.bar-container {
+background: #e0e0e0;
+height: 8px;
+border-radius: 4px;
+overflow: hidden;
+}
+.bar-fill {
+background: #2D5F3F;
+height: 100%;
+border-radius: 4px;
+transition: width 0.3s ease;
+}
+/* CTA Section */
+.cta-section {
+background: linear-gradient(135deg, #2D5F3F 0%, #1a3a27 100%);
+color: white;
+padding: 50px 30px;
+text-align: center;
+}
+.cta-title {
+font-size: 28px;
+margin-bottom: 16px;
+font-weight: 700;
+}
+.cta-text {
+font-size: 16px;
+opacity: 0.9;
+margin-bottom: 32px;
+max-width: 600px;
+margin-left: auto;
+margin-right: auto;
+}
+.cta-button {
+display: inline-block;
+background: #B87333;
+color: white;
+padding: 16px 40px;
+border-radius: 30px;
+text-decoration: none;
+font-weight: 600;
+font-size: 16px;
+transition: transform 0.2s ease, box-shadow 0.2s ease;
+cursor: pointer;
+border: none;
+}
+.cta-button:hover {
+transform: translateY(-2px);
+box-shadow: 0 8px 20px rgba(184, 115, 51, 0.3);
+}
+/* Footer */
+.footer {
+background: #1a1a1a;
+color: white;
+padding: 40px 30px;
+text-align: center;
+}
+.footer-logo {
+font-size: 20px;
+font-weight: 700;
+margin-bottom: 12px;
+}
+.footer-text {
+font-size: 13px;
+opacity: 0.7;
+margin-bottom: 20px;
+}
+.social-links {
+display: flex;
+justify-content: center;
+gap: 16px;
+margin-bottom: 20px;
+}
+.social-link {
+width: 40px;
+height: 40px;
+background: rgba(255,255,255,0.1);
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+color: white;
+text-decoration: none;
+transition: background 0.2s ease;
+}
+.social-link:hover {
+background: rgba(255,255,255,0.2);
+}
+.impact-counter {
+background: rgba(45, 95, 63, 0.2);
+border-radius: 12px;
+padding: 20px;
+margin-top: 20px;
+}
+.impact-number {
+font-size: 36px;
+font-weight: 700;
+color: #7FBF7F;
+display: block;
+margin-bottom: 8px;
+}
+.impact-label {
+font-size: 13px;
+opacity: 0.8;
+}
+@media print {
+body {
+background: white;
+}
+.cta-button {
+display: none;
+}
+.social-links {
+display: none;
+}
+}
+</style>
+</head>
+<body>
+<div class="container">
+<!-- Header -->
+<div class="header">
+<div class="logo">KAFÉ LABS</div>
+<div class="tagline">From Farm to Cup</div>
+</div>
+<!-- Hero Section -->
+<div class="hero">
+<div class="origin-badge">🇧🇷 Brazil - Minas Gerais</div>
+<h1>Farm Serra Verde</h1>
+<p>Single Origin • Natural Process • Bourbon Varietal</p>
+<img src="https://pplx-res.cloudinary.com/image/upload/v1764191524/search_images/32ecbde8827416f5e541034e3b36f55a789fcb79.jpg" alt="Coffee plantation in Mantiqueira de Minas, Brazil" class="coffee-image">
+</div>
+<!-- Producer Story -->
+<div class="section">
+<h2 class="section-title">
+<span class="icon">👨‍🌾</span>
+Meet Your Producer
+</h2>
+<div class="producer-card">
+<div class="producer-header">
+<div class="producer-avatar">CS</div>
+<div class="producer-info">
+<h3>Carlos Silva</h3>
+<div class="producer-location">
+📍 Carmo de Minas, Minas Gerais, Brazil
+</div>
+</div>
+</div>
+<div class="producer-story">
+<p><strong>Third-generation coffee farmer</strong> Carlos Silva has been cultivating exceptional coffee on Farm Serra Verde since 1998. Located at 1,200 meters altitude in the renowned Mantiqueira de Minas region, his 25-hectare farm specializes in natural process Bourbon varietals.</p>
+<p>Carlos learned traditional farming methods from his grandfather while embracing modern sustainable practices. His commitment to environmental stewardship includes shade-grown coffee, natural fertilizers, and water conservation techniques that preserve the unique microclimate of the Serra da Mantiqueira mountains.</p>
+<p>"For me, coffee is not just a crop—it's a connection between the land, our family heritage, and coffee lovers around the world. When you roast these beans fresh at home, you're tasting the mountains, the sunshine, and three generations of dedication." — Carlos Silva</p>
+</div>
+<div class="farm-details">
+<div class="detail-card">
+<div class="detail-label">Altitude</div>
+<div class="detail-value">1,200m</div>
+</div>
+<div class="detail-card">
+<div class="detail-label">Farm Size</div>
+<div class="detail-value">25 hectares</div>
+</div>
+<div class="detail-card">
+<div class="detail-label">Varietal</div>
+<div class="detail-value">Yellow Bourbon</div>
+</div>
+<div class="detail-card">
+<div class="detail-label">Processing</div>
+<div class="detail-value">Natural</div>
+</div>
+<div class="detail-card">
+<div class="detail-label">Harvest</div>
+<div class="detail-value">June - August</div>
+</div>
+<div class="detail-card">
+<div class="detail-label">Certification</div>
+<div class="detail-value">Organic</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Roasting Method -->
+<div class="section roasting-method">
+<h2 class="section-title">
+<span class="icon">🔥</span>
+Carlos's Recommended Roast Profile
+</h2>
+<p class="method-intro">
+Carlos has been roasting his own coffee for over 25 years. This is his favorite profile for Farm Serra Verde beans—designed to highlight the natural sweetness and fruity notes of the Yellow Bourbon varietal while maintaining the body and complexity that defines Minas Gerais coffee.
+</p>
+<div class="profile-card">
+<div class="profile-name">
+Medium Roast - "Serra Sweet"
+<span class="recommended-badge">Recommended</span>
+</div>
+<p class="profile-description">
+A balanced medium roast that brings out caramel sweetness, chocolate notes, and bright citrus acidity. Perfect for filter coffee, pour-over, or French press.
+</p>
+<div class="parameters">
+<div class="param">
+<div class="param-label">Temperature</div>
+<span class="param-value">210°C</span>
+<div class="param-unit">target end temp</div>
+</div>
+<div class="param">
+<div class="param-label">Time</div>
+<span class="param-value">14:30</span>
+<div class="param-unit">minutes</div>
+</div>
+<div class="param">
+<div class="param-label">Batch Size</div>
+<span class="param-value">200g</span>
+<div class="param-unit">green beans</div>
+</div>
+</div>
+</div>
+<div class="steps">
+<div class="step">
+<div class="step-number">1</div>
+<div class="step-content">
+<h4>Preheat & Load</h4>
+<p>Preheat your Go Green roaster to 180°C. Add 200g of Farm Serra Verde green beans to the chamber. Ensure beans are evenly distributed.</p>
+</div>
+</div>
+<div class="step">
+<div class="step-number">2</div>
+<div class="step-content">
+<h4>Initial Phase (0-8 min)</h4>
+<p>Start roasting at medium airflow. Temperature will gradually rise to 190°C. You'll notice the beans turning from green to yellowish. Listen for the first crack around 8-9 minutes.</p>
+</div>
+</div>
+<div class="step">
+<div class="step-number">3</div>
+<div class="step-content">
+<h4>Development Phase (8-14 min)</h4>
+<p>After first crack, continue roasting for 5-6 minutes. Temperature rises to 210°C. Beans will turn medium brown with a slight sheen. This is where the magic happens—sugars caramelize and flavor develops.</p>
+</div>
+</div>
+<div class="step">
+<div class="step-number">4</div>
+<div class="step-content">
+<h4>Cool Down</h4>
+<p>At 14:30 minutes, stop the roast. Transfer beans immediately to cooling tray. Stir gently for even cooling. Beans should reach room temperature in 4-5 minutes.</p>
+</div>
+</div>
+<div class="step">
+<div class="step-number">5</div>
+<div class="step-content">
+<h4>Rest & Enjoy</h4>
+<p>Store roasted beans in an airtight container for 24-48 hours. This "degassing" period allows CO2 to escape and flavors to stabilize. After resting, your coffee is ready to brew and enjoy!</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Tasting Notes -->
+<div class="section tasting-notes">
+<h2 class="section-title">
+<span class="icon">☕</span>
+Expected Flavor Profile
+</h2>
+<div class="notes-grid">
+<div class="note-card">
+<div class="note-icon">🍫</div>
+<div class="note-name">Milk Chocolate</div>
+</div>
+<div class="note-card">
+<div class="note-icon">🍊</div>
+<div class="note-name">Orange Zest</div>
+</div>
+<div class="note-card">
+<div class="note-icon">🍯</div>
+<div class="note-name">Caramel</div>
+</div>
+</div>
+<div class="flavor-profile">
+<h4>Sensory Characteristics</h4>
+<div class="flavor-bar">
+<div class="flavor-label">
+<span>Sweetness</span>
+<span>★★★★★</span>
+</div>
+<div class="bar-container">
+<div class="bar-fill" style="width: 95%"></div>
+</div>
+</div>
+<div class="flavor-bar">
+<div class="flavor-label">
+<span>Acidity</span>
+<span>★★★★☆</span>
+</div>
+<div class="bar-container">
+<div class="bar-fill" style="width: 75%"></div>
+</div>
+</div>
+<div class="flavor-bar">
+<div class="flavor-label">
+<span>Body</span>
+<span>★★★★☆</span>
+</div>
+<div class="bar-container">
+<div class="bar-fill" style="width: 80%"></div>
+</div>
+</div>
+<div class="flavor-bar">
+<div class="flavor-label">
+<span>Complexity</span>
+<span>★★★★☆</span>
+</div>
+<div class="bar-container">
+<div class="bar-fill" style="width: 85%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- CTA Section -->
+<div class="cta-section">
+<h2 class="cta-title">Load This Profile to Your App</h2>
+<p class="cta-text">
+Tap the button below to automatically load Carlos's recommended roast profile into your Kafé Labs Go Green app. You can adjust parameters anytime or save this as a favorite.
+</p>
+<button class="cta-button">Load Profile to App</button>
+<div class="impact-counter">
+<span class="impact-number">1</span>
+<div class="impact-label">Trees Planted with This Bag in the Amazon Rainforest</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="footer">
+<div class="footer-logo">KAFÉ LABS</div>
+<p class="footer-text">Turning Coffee Drinkers into Coffee Makers</p>
+<div class="social-links">
+<a href="#" class="social-link">📷</a>
+<a href="#" class="social-link">🎵</a>
+<a href="#" class="social-link">▶️</a>
+</div>
+<p class="footer-text">
+kafelabs.com | hello@kafelabs.com<br>
+© 2026 Kafé Labs. All rights reserved.
+</p>
+</div>
+</div>
+</body>
+</html>
